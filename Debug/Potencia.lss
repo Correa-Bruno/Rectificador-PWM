@@ -21,11 +21,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   8 .debug_frame  00000178  00000000  00000000  00001608  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000026e  00000000  00000000  00001780  2**0
+  9 .debug_str    0000024b  00000000  00000000  00001780  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000040e  00000000  00000000  000019ee  2**0
+ 10 .debug_loc    0000040e  00000000  00000000  000019cb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000048  00000000  00000000  00001dfc  2**0
+ 11 .debug_ranges 00000048  00000000  00000000  00001dd9  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1100,11 +1100,11 @@ int main(void)
 		}
 		if ((strcmp(modo,local)==0)&&(LecturaPin8()==1))	//si es modo local leo el y PB0 esta en 1
 		{														
-			TCCR0A ^= (1<<COM0B1)|(0<<COM0B0);		        //Cambio de estado PWM
+			TCCR0A ^= (1<<COM0B1);		        //Cambio de estado PWM
  6e8:	c0 e2       	ldi	r28, 0x20	; 32
-	ADCSRA=(1<<ADEN)|(0<<ADSC)|(1<<ADPS1)|(1<<ADPS0);		// Habilito el ADC, Configuro prescaler en 8
 
 	sei();
+	
     while(1)
 	{  
 		if(bTX==1)											// cuando se pone en alto la bandera de recepcion retransmite el dato
@@ -1127,7 +1127,7 @@ int main(void)
  70a:	81 30       	cpi	r24, 0x01	; 1
  70c:	29 f4       	brne	.+10     	; 0x718 <main+0xaa>
 		{														
-			TCCR0A ^= (1<<COM0B1)|(0<<COM0B0);		        //Cambio de estado PWM
+			TCCR0A ^= (1<<COM0B1);		        //Cambio de estado PWM
  70e:	84 b5       	in	r24, 0x24	; 36
  710:	8c 27       	eor	r24, r28
  712:	84 bd       	out	0x24, r24	; 36

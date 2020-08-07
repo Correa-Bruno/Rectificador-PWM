@@ -567,10 +567,10 @@ END GROUP
  *(.debug_frame)
  .debug_frame   0x00000000      0x178 Potencia.o
 
-.debug_str      0x00000000      0x26e
+.debug_str      0x00000000      0x24b
  *(.debug_str)
- .debug_str     0x00000000      0x26e Potencia.o
-                                0x2b4 (size before relaxing)
+ .debug_str     0x00000000      0x24b Potencia.o
+                                0x291 (size before relaxing)
 
 .debug_loc      0x00000000      0x40e
  *(.debug_loc)

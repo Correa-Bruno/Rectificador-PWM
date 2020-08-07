@@ -65,6 +65,7 @@ int main(void)
 	ADCSRA=(1<<ADEN)|(0<<ADSC)|(1<<ADPS1)|(1<<ADPS0);		// Habilito el ADC, Configuro prescaler en 8
 
 	sei();
+	
     while(1)
 	{  
 		if(bTX==1)											// cuando se pone en alto la bandera de recepcion retransmite el dato
@@ -73,7 +74,7 @@ int main(void)
 		}
 		if ((strcmp(modo,local)==0)&&(LecturaPin8()==1))	//si es modo local leo el y PB0 esta en 1
 		{														
-			TCCR0A ^= (1<<COM0B1)|(0<<COM0B0);		        //Cambio de estado PWM
+			TCCR0A ^= (1<<COM0B1);		        //Cambio de estado PWM
 		    onoff();
 	    }
 		if ((strcmp(modo,remoto)==0)&&(strcmp(estado,on_off)==0))
